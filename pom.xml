@@ -43,8 +43,9 @@
 						<applicationName>demo-project-shiva-v1</applicationName>
 						<environment>Sandbox</environment>
 						<workerType>MICRO</workerType>
+						<objectStoreV2>true</objectStoreV2>
 						<properties>
-							<key>value</key>
+							
 						</properties>
 					</cloudHubDeployment>
 
