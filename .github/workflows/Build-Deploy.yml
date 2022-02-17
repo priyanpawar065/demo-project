@@ -62,9 +62,7 @@ jobs:
           USERNAME: priyanpawar065
           PASSWORD: Pawar@2022 
         run: |
-          artifactName: $(ls *.jar | head -1)
           mvn deploy -DmuleDeploy -e \
-          -Dmule.artifact =$artifactName \
           -Dusername ="$USERNAME" \
           -Dpassword ="$PASSWORD"
           
