@@ -17,7 +17,7 @@
 
 		<app.runtime>4.3.0-20210119</app.runtime>
 		<mule.maven.plugin.version>3.4.2</mule.maven.plugin.version>
-		<username>priyanpawar065</username>
+		<username>priyanpawar</username>
 		<password>Pawar@2022</password>
 	</properties>
 
