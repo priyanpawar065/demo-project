@@ -34,8 +34,14 @@ jobs:
           java-version: 1.8
     
       
-      # Build using Maven
-      - name: Run a multi-line script
+  # Build using Maven
+      - name: Build Mule project
         run: mvn -B package --file pom.xml
-
-
+        
+# Upload Artifacts 
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: artifacts
+          path: target/*.jar
+   
