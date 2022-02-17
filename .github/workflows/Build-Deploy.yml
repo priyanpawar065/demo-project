@@ -64,6 +64,7 @@ jobs:
         run: |
           artifactName: $(ls *.jar | head -1)
           mvn deploy -DmuleDeploy -e \
+          -Dmule.artifact =$artifactName \
           -Dusername ="$USERNAME" \
           -Dpassword ="$PASSWORD"
           
