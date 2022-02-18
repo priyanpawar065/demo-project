@@ -1,5 +1,5 @@
 
-name: Build and Deploy Mulesoft API
+name: Build and Deploy CloudHUB
 
 # Controls when the workflow will run
 on:
