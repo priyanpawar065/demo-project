@@ -64,7 +64,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{secrets.EC2_SSH_KEY}}
           REMOTE_HOST: ${{secrets.HOST_DNS}}
           REMOTE_USER: ${{secrets.USERNAME}}
-          TARGET: ${{secrets.TARGET}}
+          TARGET: ${{secrets.TARGET_DIR}}
         
         ## run: mvn deploy -DmuleDeploy -Dusername="$USERNAME" -Dpassword="$PASSWORD"
           
