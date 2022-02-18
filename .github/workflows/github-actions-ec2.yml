@@ -44,7 +44,7 @@ jobs:
        
  #############################
   deploy:
-    name: Deploy API to EC2
+    name: Upload to EC2
     needs: build
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -57,15 +57,13 @@ jobs:
         uses: actions/download-artifact@main
         with:
            name: artifacts
-           
-      - name: Deploy to EC2 Mule-Server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{secrets.EC2_SSH_KEY}}
-          REMOTE_HOST: ${{secrets.HOST_DNS}}
-          REMOTE_USER: ${{secrets.USERNAME}}
-          TARGET: ${{secrets.TARGET_DIR}}
-        
-        ## run: mvn deploy -DmuleDeploy -Dusername="$USERNAME" -Dpassword="$PASSWORD"
+      - name: Upload-Files-Action
+        uses: zhenyuWang/Upload-File-Action@v1.0.1
+        with:
+          username: ${{secrets.USERNAME}}
+          server: ${{secrets.HOST_DNS}}
+          port: 22
+          ssh_private_key: ${{secrets.EC2_SSH_KEY}}
+          local_path: target/*.jar
+          target_path: ${{secrets.TARGET_DIR}}
           
- 
