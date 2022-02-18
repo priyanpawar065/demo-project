@@ -44,26 +44,17 @@ jobs:
        
  #############################
   deploy:
-    name: Upload to EC2
+    name: Push to EC2 Instance
     needs: build
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      
-      - name: Checkout Code from GITHUB Repo
+      - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Download Artifacts for deploy       
-        uses: actions/download-artifact@main
-        with:
-           name: artifacts
-      - name: Upload-Files-Action
-        uses: zhenyuWang/Upload-File-Action@v1.0.1
-        with:
-          username: ${{secrets.USERNAME}}
-          server: ${{secrets.HOST_DNS}}
-          port: 22
-          ssh_private_key: ${{secrets.EC2_SSH_KEY}}
-          local_path: target/*.jar
-          target_path: ${{secrets.TARGET_DIR}}
-          
+      - name: Deploy to my EC2 instance
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          SOURCE: "./"
+          REMOTE_HOST: "ec2-18-133-74-178.eu-west-2.compute.amazonaws.com"
+          REMOTE_USER: "ec2-user"
+          TARGET: "/home/ec2-user/SampleExpressApp"
