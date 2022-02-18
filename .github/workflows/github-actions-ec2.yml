@@ -25,6 +25,6 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           SOURCE: "./"
-          REMOTE_HOST: "ec2-18-133-74-178.eu-west-2.compute.amazonaws.com"
+          REMOTE_HOST: "ec2-3-10-246-47.eu-west-2.compute.amazonaws.com"
           REMOTE_USER: "ec2-user"
-          TARGET: "/etc/*"
+          TARGET: "/etc/mule/mule-standalone-4.4.0/apps"
