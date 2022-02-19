@@ -10,7 +10,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="demo-projectFlow" doc:id="1d4d320c-9d9d-4350-892d-8efe00d37f3c" >
 		<http:listener doc:name="Listener" doc:id="f0ccb059-2626-4fb5-ba8a-1ff9c5d1c0e8" config-ref="HTTP_Listener_config" path="/demo"/>
 		<logger level="INFO" doc:name="Logger" doc:id="fa909e1f-a74d-45ff-aa64-fd3d3cf27e2f" message="Application started ****************"/>
-		<set-payload value='#[%dw 2.0&#10;output application/json&#10;---&#10;{&#10;    "message": "Hello world!"&#10;}]' doc:name="Set Payload" doc:id="adbdeb59-9ad7-4b6b-93b5-ff0f84a309b9" />
+		<set-payload value='#[%dw 2.0&#10;output application/json&#10;---&#10;{&#10;    "message": "Hello Welcome to CI/CD Process"&#10;}]' doc:name="Set Payload" doc:id="adbdeb59-9ad7-4b6b-93b5-ff0f84a309b9" />
 		<logger level="INFO" doc:name="Logger" doc:id="2b27612f-e212-414e-bcbe-0eab4193c858" message="********Application End ****************"/>
 	</flow>
 </mule>
