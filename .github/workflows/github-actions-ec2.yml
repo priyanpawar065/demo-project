@@ -36,6 +36,7 @@ jobs:
         
          # Upload Artifacts 
       - name: Upload-Build-Artifact
+        id: outputData
         uses: actions/upload-artifact@main
         with:
           name: artifacts
@@ -49,7 +50,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Download Artifacts for deploy       
+      - name: Download Artifacts for deploy  
+        
         uses: actions/download-artifact@main
         with:
            name: artifacts
@@ -57,7 +59,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          SOURCE: ${{ jobs.Upload-Build-Artifact.steps.path }}
+          SOURCE: ${{ jobs.outputData.steps.id }}
           REMOTE_HOST: "ec2-3-10-246-47.eu-west-2.compute.amazonaws.com"
           REMOTE_USER: "ec2-user"
           TARGET: "/etc/mule/mule-standalone-4.4.0/apps"
