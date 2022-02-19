@@ -57,7 +57,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          SOURCE: "/home/runner/work//*/target/*"
+          SOURCE: "/home/runner/work//*.jar"
           REMOTE_HOST: "ec2-3-10-246-47.eu-west-2.compute.amazonaws.com"
           REMOTE_USER: "ec2-user"
           TARGET: "/etc/mule/mule-standalone-4.4.0/apps"
